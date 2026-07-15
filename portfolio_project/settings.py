@@ -8,7 +8,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ⚠️ Change this before deploying anywhere public, and keep it secret
 # (e.g. load from an environment variable instead of hardcoding it).
-SECRET_KEY = 'django-insecure-CHANGE-ME-before-deploying'
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY",
+    "django-insecure-local-development-key"
+)
 
 # Set to False in production
 import os
@@ -34,13 +37,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'portfolio_project.urls'
@@ -85,7 +89,7 @@ USE_TZ = True
 # ---------------------------------------------------------------------------
 # STATIC FILES (css/js) — lives inside portfolio/static/portfolio/
 # ---------------------------------------------------------------------------
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = []  # app-level static/ folders are picked up automatically
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # used by `collectstatic` for deployment
 STATICFILES_STORAGE = (

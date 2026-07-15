@@ -20,6 +20,7 @@ PORTFOLIO = {
     "role_titles": [
         "Software Engineer",
         "Python Full-Stack Developer",
+        "AI Engineer",
         "Problem Solver",
     ],
 
