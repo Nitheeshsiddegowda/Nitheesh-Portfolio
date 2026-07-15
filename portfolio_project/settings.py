@@ -11,9 +11,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-CHANGE-ME-before-deploying'
 
 # Set to False in production
-DEBUG = True
+import os
 
-ALLOWED_HOSTS = ['*']  # ⚠️ Restrict this to your real domain(s) in production
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".onrender.com",
+]  # ⚠️ Restrict this to your real domain(s) in production
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -34,6 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'portfolio_project.urls'
@@ -81,7 +88,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = []  # app-level static/ folders are picked up automatically
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # used by `collectstatic` for deployment
-
+STATICFILES_STORAGE = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+)
 # ---------------------------------------------------------------------------
 # MEDIA FILES — put your resume.pdf / profile photo here at runtime
 # ---------------------------------------------------------------------------
