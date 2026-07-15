@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ data.site_title }}</title>
+<meta name="description" content="Portfolio of {{ data.name }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<div class="ambient">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+{% include "portfolio/partials/nav.html" %}
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+{% include "portfolio/partials/footer.html" %}
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+{{ data.role_titles|json_script:"roles-data" }}
+<script>
+  // role titles come from data.py -> parsed here so main.js doesn't hardcode content
+  window.ROLES = JSON.parse(document.getElementById('roles-data').textContent);
+</script>
+<script src="{% static 'portfolio/js/main.js' %}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

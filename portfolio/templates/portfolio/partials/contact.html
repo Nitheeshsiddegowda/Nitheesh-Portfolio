@@ -1,0 +1,77 @@
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's <em>connect</em></h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="lead">
+          I'm actively seeking full-time Software Engineer, Python Developer,
+          and AI/ML Engineer roles where I can contribute, learn, and grow. I'm
+          also open to exciting internship opportunities. Whether you have a job
+          opening, a project idea, or simply want to connect and talk tech, I'd
+          love to hear from you.
+        </p>
+
+        <div class="contact-item">
+          <div class="ic">✉</div>
+          <div>
+            <div class="lab">Email</div>
+            <a class="val" href="mailto:{{ data.email }}">{{ data.email }}</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">☎</div>
+          <div>
+            <div class="lab">Phone</div>
+            <a class="val" href="tel:{{ data.phone }}"
+              >{{ data.phone_display }}</a
+            >
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">in</div>
+          <div>
+            <div class="lab">LinkedIn</div>
+            <a
+              class="val"
+              href="{{ data.linkedin_url }}"
+              target="_blank"
+              rel="noopener"
+              >{{ data.linkedin_display }}</a
+            >
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">⌥</div>
+          <div>
+            <div class="lab">GitHub</div>
+            <a
+              class="val"
+              href="{{ data.github_url }}"
+              target="_blank"
+              rel="noopener"
+              >{{ data.github_display }}</a
+            >
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">📍</div>
+          <div>
+            <div class="lab">Location</div>
+            <div class="val">{{ data.address }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="contact-headline">Open to <em>new opportunities</em></div>
+        <a href="mailto:{{ data.email }}" class="btn btn-amber"
+          >✉ Send Me an Email</a
+        >
+      </div>
+    </div>
+  </div>
+</section>

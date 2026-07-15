@@ -1,0 +1,28 @@
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Experience</span>
+      <h2>Where I've <em>worked</em></h2>
+    </div>
+
+    <div class="timeline">
+      {% for job in data.experience %}
+      <div class="timeline-item reveal">
+        <div class="tl-meta">
+          <div class="date">{{ job.date }}</div>
+          <div class="org">{{ job.org }}</div>
+          <div class="loc">{{ job.location }}</div>
+          <span class="tl-status">{{ job.status }}</span>
+        </div>
+        <div class="tl-body">
+          <h3>{{ job.title }}</h3>
+          <p>{{ job.description }}</p>
+          <div class="tl-tags">
+            {% for tag in job.tags %}<span>{{ tag }}</span>{% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

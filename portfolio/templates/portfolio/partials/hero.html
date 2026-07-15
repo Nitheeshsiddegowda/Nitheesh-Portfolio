@@ -1,0 +1,43 @@
+{% load static %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      {% if data.available %}
+      <div class="status-pill reveal"><span class="status-dot"></span>Available for opportunities · {{ data.location }}</div>
+      {% endif %}
+
+      <h1 class="reveal">{{ data.name }}</h1>
+      <div class="role reveal"><span id="typedRole"></span><span class="cursor"></span></div>
+
+      <p class="summary reveal">{{ data.summary }}</p>
+
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        <a href="/media/{{ data.resume_file }}" download class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+          Download Resume
+        </a>
+      </div>
+
+      <div class="hero-contact reveal">
+        <a href="mailto:{{ data.email }}">✉ {{ data.email }}</a>
+        <a href="tel:{{ data.phone }}">☎ {{ data.phone_display }}</a>
+        <a href="{{ data.linkedin_url }}" target="_blank" rel="noopener">in {{ data.linkedin_display }}</a>
+        <a href="{{ data.github_url }}" target="_blank" rel="noopener">⌥ {{ data.github_display }}</a>
+      </div>
+    </div>
+
+    <div class="glance-card reveal">
+      <span class="glance-tag">At a Glance</span>
+      {% for stat in data.stats %}
+      <div class="glance-row">
+        <span class="glance-label">{{ stat.label }}</span>
+        <span class="glance-value">
+          <span class="cv" data-count="{{ stat.value }}" data-decimals="{{ stat.decimals }}">0</span>{{ stat.suffix }}
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

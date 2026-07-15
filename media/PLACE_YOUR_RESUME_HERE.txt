@@ -1,0 +1,1 @@
+Put your real resume.pdf in this folder with this exact filename (or update resume_file in portfolio/data.py to match a different name).

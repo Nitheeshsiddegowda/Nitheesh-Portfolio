@@ -1,0 +1,41 @@
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">About</span>
+      <h2>Who I <em>am</em></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        {% for para in data.about_paragraphs %}
+          <p>{{ para }}</p>
+        {% endfor %}
+
+        <h3>Languages &amp; Technologies</h3>
+        <div class="tag-grid">
+          {% for skill in data.skills %}
+            <span class="tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
+
+        <h3>Tools &amp; Platforms</h3>
+        <div class="tag-grid">
+          {% for tool in data.tools %}
+            <span class="tag alt">{{ tool }}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="reveal-stagger reveal">
+        {% for edu in data.education %}
+        <div class="edu-card">
+          <div class="edu-year">{{ edu.years }}</div>
+          <h4>{{ edu.degree }}</h4>
+          <div class="school">{{ edu.school }}</div>
+          <span class="badge">{{ edu.badge }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

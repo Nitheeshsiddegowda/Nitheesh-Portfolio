@@ -1,0 +1,18 @@
+<section id="achievements">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Achievements</span>
+      <h2>Beyond the <em>code</em></h2>
+    </div>
+
+    <div class="achieve-grid reveal-stagger reveal">
+      {% for item in data.achievements %}
+      <div class="achieve-card">
+        <div class="emoji">{{ item.emoji }}</div>
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
