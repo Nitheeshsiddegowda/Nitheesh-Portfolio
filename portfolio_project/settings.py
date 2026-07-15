@@ -3,6 +3,7 @@ Django settings for portfolio_project.
 Minimal, single-app config for a personal portfolio site.
 """
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -14,7 +15,7 @@ SECRET_KEY = os.environ.get(
 )
 
 # Set to False in production
-import os
+
 
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
