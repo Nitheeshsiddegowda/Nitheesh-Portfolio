@@ -182,7 +182,7 @@ PORTFOLIO = {
             "PyPDF2",
             "gTTS"
         ],
-        "code_url": "https://github.com/Hemanth-Gowda03/PdfTalker",
+        "code_url": "https://github.com/Nitheeshsiddegowda/PdfTalker",
         "demo_url": "",
         "featured": False,
     },
